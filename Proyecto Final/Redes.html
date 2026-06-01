@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="redes.css">
+        <title>Redes de Computadoras</title>
+    </head>
+    <body>
+            <header class="reino">
+                <nav class="menu-superior">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="virtualizacion.html">Virtualización</a></li>
+                        <li><a href="Bases.html">Bases de Datos</a></li>
+                        <li><a href="diseño.html">Normalización</a></li>
+                        <li><a href="Redes.html">Redes</a></li>
+                        <li><a href="ethernet.html">Ethernet</a></li>
+                        <li>
+                            <div class="magic">
+                                <input type="text" id="inputBusqueda" placeholder="Busca un tema...">
+                                <button onclick="buscarTema()">Explorar</button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <script src="buscador.js"></script>
+
+            <main class="castillo">
+                <div class="concepto">
+                    <h2>Concepto</h2>
+                    <h3>¿Qué es una Red de Computadoras?</h3>
+                    <p>Una red de computadoras es un conjunto de nodos interconectados entre sí (como computadoras, servidores, enrutadores y dispositivos inteligentes) mediante enlaces físicos o inalámbricos. El propósito de esta infraestructura es compartir recursos (archivos, impresoras), ejecutar servicios remotos y transportar flujos de datos bajo un lenguaje común de comunicación conocido como protocolo.</p>
+                    <img src="Imagenes/redes.jpg" class="imagen-reino">
+
+                    <h3>Clasificación por su Alcance Geográfico</h3>
+                    <p>Dependiendo de la extensión territorial que abarquen, las redes se dividen en diferentes arquitecturas técnicas:<br>
+                        <strong>Red LAN (Local Area Network):</strong> Redes de corto alcance, confinadas a un espacio reducido como una oficina, una casa o un laboratorio universitario. Son sumamente veloces y seguras.<br> 
+                        <img src="Imagenes/REDES LAN.jpg" class="imagen-reino">
+                        <strong>Red MAN (Metropolitan Area Network):</strong> Infraestructura de alta velocidad que cubre un área geográfica metropolitana o municipal (por ejemplo, la red de interconexión de las sedes de una universidad en una misma ciudad).<br>
+                        <img src="Imagenes/Red MAN - Caractertisticas.jpg" class="imagen-reino">
+                        <strong>Red WAN (Wide Area Network):</strong> Red de gran alcance que interconecta países o continentes enteros. El ejemplo más grande y evidente de una red WAN es el propio Internet.</p>
+                        <img src="Imagenes/RED WAN.jpg" class="imagen-reino">
+                </div>
+
+                <div class="proceso">
+                    <h2>Topologías de Red</h2>
+                    <p>La topología de red define el mapa gráfico, físico o lógico en el que los cables y dispositivos se distribuyen para intercambiar información. Elegir la adecuada determina el rendimiento técnico y la tolerancia a fallos del sistema:</p>
+                    
+                    <h3><strong>Topología en Estrella (La más utilizada)</strong></h3>
+                    <p>En esta arquitectura, todos los nodos finales están conectados directamente a un dispositivo central intermedio llamado Switch o conmutador, el cual administra y reenvía los paquetes directamente a su destino.<br>
+                    <em>Ventaja y Ejemplo:</em> Es la que usamos en nuestros hogares y laboratorios de cómputo de la universidad. Si el cable de una computadora se daña, solo esa máquina pierde conexión, el resto del reino sigue funcionando perfectamente.</p>
+
+                    <img src="Imagenes/Topologia estrella.jpg" class="imagen-reino">
+                    
+                    <h3><strong>Topología en Bus</strong></h3>
+                    <p>Es una de las topologías más antiguas. Consiste en un único canal de comunicación central (un cable coaxial largo llamado bus) al cual se conectan todos los dispositivos en fila mediante conectores especiales.<br>
+                    <em>Desventaja técnica:</em> Si el cable central sufre una ruptura en cualquier punto, toda la red colapsa de forma instantánea al no poder circular las señales eléctricas.</p>
+
+                    <img src="Imagenes/Red de Bus.jpg" class="imagen-reino">
+
+                    <h3><strong>Topología en Anillo</strong></h3>
+                    <p>Cada nodo se conecta exactamente a otros dos dispositivos, formando un círculo o anillo cerrado. Los datos viajan en una sola dirección de nodo en nodo mediante un "token" o testigo lógico que otorga el turno para transmitir.<br>
+                    <em>Desventaja técnica:</em> Al igual que en el bus, si un solo dispositivo se apaga o su cable se rompe, el ciclo se interrumpe y toda la red deja de transmitir.</p>
+
+                    <img src="Imagenes/Red de anillo.jpg" class="imagen-reino">
+
+                    <h3><strong>Topología en Malla (Mesh)</strong></h3>
+                    <p>En este diseño, cada nodo está conectado directamente a múltiples nodos (o a todos si es una malla completa). Esto crea múltiples caminos alternativos para que viaje la información.<br>
+                    <em>Aplicación industrial:</em> Es costosa de implementar por la cantidad de cableado y tarjetas de red necesarias, pero ofrece la mayor redundancia y tolerancia a fallos del mundo. Se aplica en servidores críticos de la banca y en la infraestructura troncal de Internet.</p>
+
+                    <img src="Imagenes/Red en Malla.jpg" class="imagen-reino">
+                </div>
+
+                <div class="proceso">
+                    <h2>¿Dónde se aplica?</h2>
+                    <p>Las redes de computadoras se aplican en absolutamente toda la infraestructura tecnológica moderna: desde la red Wi-Fi de tu casa que conecta tus dispositivos móviles, pasando por los centros de datos empresariales que sincronizan bases de datos en tiempo real, hasta los sistemas de telecomunicaciones globales que permiten realizar videoconferencias o transacciones en línea de manera instantánea en cualquier parte del mundo.</p>
+                </div>
+
+                <div class="proceso">
+                    <h2>Reflexión Personal</h2>
+                    <p>Las redes han venido a cambiar la forma en la que transmitimos datos e incluso la forma en la que nos comunicamos, esa fue la razón par la que elegí
+                        este tema, creo que sin las redes el mundo no sería lo mismo y sin ellas posiblemente la ingeniería en sistemas perderia uno de sus campos laborales más
+                        amplios. Con las redes podemos compartir información, realizar tareas y obtener datos que antes podian tomar semanas, ahora se pueden hacer en horas. Las 
+                        redes llegaron como un medio para conectar al mundo.
+                    </p>
+                </div>
+            </main>
+    </body>
+</html>
