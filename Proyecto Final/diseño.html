@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="diseño.css">
+        <title>Normalización de Bases de Datos</title>
+    </head>
+    <body>
+            <header class="reino">
+                <nav class="menu-superior">
+                    <ul>
+                        <li><a href="inicio.html">Inicio</a></li>
+                        <li><a href="virtualizacion.html">Virtualización</a></li>
+                        <li><a href="Bases.html">Bases de Datos</a></li>
+                        <li><a href="diseño.html">Normalización</a></li>
+                        <li><a href="Redes.html">Redes</a></li>
+                        <li><a href="ethernet.html">Ethernet</a></li>
+                        <li>
+                            <div class="magic">
+                                <input type="text" id="inputBusqueda" placeholder="Busca un tema...">
+                                <button onclick="buscarTema()">Explorar</button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <script src="buscador.js"></script>
+
+            <main class="castillo">
+                <div class="concepto">
+                    <h2>Concepto</h2>
+                    <h3>¿Qué es la Normalización?</h3>
+                    <p>La normalización es un proceso matemático y lógico que se aplica a las bases de datos relacionales para organizar los campos y las tablas de manera óptima. Su principal objetivo es purificar la estructura del esquema de datos para eliminar redundancias (datos repetidos) y proteger la base de datos contra anomalías destructivas al insertar, actualizar o eliminar registros en el software de cómputo.</p>
+                    
+                    <h3>El Gran Problema: La Redundancia y las Anomalías</h3>
+                    <p>Cuando un diseño no está normalizado, surgen tres peligros técnicos críticos:<br>
+                        <strong>Anomalía de Inserción:</strong> No poder registrar una entidad porque le faltan datos de otra (por ejemplo, no poder registrar un nuevo curso de ingeniería hasta que haya al menos un alumno inscrito).<br> 
+                        <strong>Anomalía de Actualización:</strong> Si la dirección de un proveedor se repite en 500 filas de productos y cambia de domicilio, hay que modificar las 500 filas. Si una sola falla, la base de datos se vuelve inconsistente.<br>
+                        <strong>Anomalía de Eliminación:</strong> Al borrar un registro, perder información valiosa de forma colateral (por ejemplo, al dar de baja al único alumno que recibía un curso, se borran por completo los datos técnicos del curso).</p>
+
+                        <img src="Imagenes/diseño.jpg" class="imagen-reino">
+                </div>
+
+                <div class="proceso">
+                    <h2>¿Cómo se realiza?</h2>
+                    <p>La normalización se ejecuta aplicando reglas secuenciales llamadas **Formas Normales**. Para que una base de datos sea considerada robusta y profesional en la industria, generalmente debe alcanzar la Tercera Forma Normal (3FN):</p>
+                    
+                    <h3><strong>1. Primera Forma Normal (1FN): Atomicidad</strong></h3>
+                    <p>Establece que todos los valores de las celdas deben ser atómicos (indivisibles). Esto significa que no pueden existir múltiples valores o listas de datos dentro de una misma columna. <br>
+                    <em>Ejemplo:</em> Si en la columna <code>Teléfonos</code> guardas "5555-1234, 4444-5678", rompes la 1FN. La solución es separar esos teléfonos en filas independientes o crear una tabla exclusiva para números telefónicos.</p>
+                    
+                    <h3><strong>2. Segunda Forma Normal (2FN): Dependencia Funcional Completa</strong></h3>
+                    <p>Para llegar a la 2FN, la tabla primero debe cumplir con la 1FN. Además, exige que todas las columnas que no formen parte de la clave primaria dependan por completo de **toda** la clave primaria, y no solo de una parte de ella (aplica principalmente para tablas con claves compuestas).<br>
+                    <em>Ejemplo:</em> En una tabla "Asignación" cuya clave compuesta es <code>(ID_Estudiante, ID_Curso)</code>, si incluyes la columna <code>Nombre_Curso</code>, esta depende únicamente del ID_Curso y no del estudiante. Rompes la 2FN. La solución es extraer los datos del curso a su propia tabla.</p>
+
+                    <h3><strong>3. Tercera Forma Normal (3FN): Eliminación de Dependencias Transitivas</strong></h3>
+                    <p>Requiere cumplir con la 2FN. Dicta que las columnas que no son claves deben depender directamente de la clave primaria, y no a través de otra columna intermedia.<br>
+                    <em>Ejemplo:</em> En una tabla de "Empleados" con clave <code>ID_Empleado</code>, si guardas las columnas <code>ID_Departamento</code> y <code>Nombre_Departamento</code>, el nombre del departamento depende de su ID, y el ID depende del empleado. Hay una dependencia transitiva. La solución es segmentar el departamento en una tabla independiente.</p>
+
+                    <img src="Imagenes/diseño1.jpg" class="imagen-reino">
+                </div>
+
+                <div class="proceso">
+                    <h2>¿Dónde se aplica?</h2>
+                    <p>La normalización se aplica obligatoriamente en la fase de diseño lógico de cualquier sistema transaccional (OLTP). Es indispensable al modelar el software de facturación electrónica, los sistemas de gestión hospitalaria para historiales clínicos, y las bases de datos de aplicaciones bancarias donde un solo dato duplicado o inconsistente podría provocar errores financieros graves o pérdidas de información.</p>
+                    <img src="Imagenes/Diseño2.jpg" class="imagen-reino">
+
+                </div>
+
+                <div class="proceso">
+                    <h2>Reflexión Personal</h2>
+                    <p>Creo que no se puede hablar de bases de datos sin mencionar la normalización, si bien una base de datos es útil por si misma,
+                        no es tan eficiente si no se le aplican los tres niveles de la normalización, utilizarnos nos permite tener una estructura visualmente
+                        más ordenada y mucho más funcional que si se omite. </p>
+                    <p>Elegí el tema porque complementa muy bien el tema de las bases de datos y porque me gusta la idea de poder facilitar el uso de las bases de datos,
+                        yo tengo un emprendimiento propio y en más de uan ocación he necesitado usar bases de datos, por eso se que al poder simplificar la información
+                        la información no solo se encuntra más rápido sino que resulta mucho más útil de esa manera.
+                    </p>
+                </div> 
+            </main>
+    </body>
+</html>
